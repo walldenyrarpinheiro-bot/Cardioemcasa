@@ -1,0 +1,17 @@
+CARDIO EM CASA STUDIO — ARQUIVOS PARA CLOUDFLARE PAGES
+
+Conteúdo:
+- index.html: página principal do site
+- assets/: seis ilustrações SVG locais dos serviços
+
+As ilustrações estão armazenadas nesta pasta. O site não usa links externos para carregar imagens. O botão do WhatsApp e o link do Instagram precisam de internet, pois levam a serviços externos.
+
+PUBLICAR:
+1. Entre em https://dash.cloudflare.com/ e faça login/crie uma conta.
+2. Abra Workers & Pages.
+3. Escolha Create application > Pages > Get started > Drag and drop your files (os nomes podem variar ligeiramente).
+4. Informe um nome para o projeto.
+5. Envie o arquivo ZIP deste pacote ou a pasta descompactada.
+6. Clique em Deploy site.
+
+O arquivo index.html precisa ficar na raiz do pacote, como está aqui.

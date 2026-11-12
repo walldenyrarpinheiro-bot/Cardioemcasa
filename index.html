@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#9f4938">
+  <meta name="description" content="Cardio em Casa — atendimentos personalizados para seu bem-estar. Escolha seu serviço principal e personalize com adicionais.">
+  <title>Cardio em Casa | Seu cuidado, do seu jeito</title>
+  <style>
+    :root {
+      --terracotta: #9f4938;
+      --terracotta-dark: #783729;
+      --clay: #c77b65;
+      --cream: #f8f3ed;
+      --paper: #fffdfa;
+      --sand: #eadbd0;
+      --ink: #342923;
+      --muted: #796b63;
+      --green: #287b50;
+      --shadow: 0 18px 45px rgba(74, 43, 31, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,253,250,.94);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(159,73,56,.12);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 44px; height: 44px; border-radius: 15px; display: grid; place-items: center;
+      background: var(--terracotta); color: white; font-weight: 800; letter-spacing: -1px;
+    }
+    .brand-name { font-weight: 800; letter-spacing: .12em; font-size: 13px; line-height: 1.25; }
+    .brand-name span { display: block; color: var(--terracotta); font-size: 11px; letter-spacing: .22em; margin-top: 4px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 0; border-radius: 999px; padding: 14px 22px; background: var(--terracotta);
+      color: white; font-weight: 750; cursor: pointer; transition: .2s ease;
+      box-shadow: 0 8px 20px rgba(159,73,56,.18);
+    }
+    .button:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+    .button.secondary { background: transparent; color: var(--terracotta); border: 1px solid var(--sand); box-shadow: none; }
+    .hero { padding: 76px 0 68px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 56px; }
+    .eyebrow { color: var(--terracotta); text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 800; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 6vw, 70px); line-height: 1.04; font-weight: 500; letter-spacing: -.04em; margin: 18px 0; }
+    h1 em { color: var(--terracotta); font-style: italic; }
+    .hero p { max-width: 510px; color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+    .hero-art {
+      min-height: 390px; border-radius: 46% 46% 24px 24px; position: relative; overflow: hidden;
+      background: radial-gradient(circle at 65% 28%, #f5d8c8 0 12%, transparent 12.5%),
+                  radial-gradient(ellipse at 52% 72%, #c77b65 0 25%, transparent 25.5%),
+                  linear-gradient(145deg, #eadbd0, #d6a18e);
+      box-shadow: var(--shadow);
+    }
+    .hero-art:before {
+      content: ""; position: absolute; width: 210px; height: 270px; border-radius: 48% 48% 42% 42%;
+      background: #f8e9dd; top: 70px; left: calc(50% - 105px); transform: rotate(-8deg);
+      box-shadow: 32px 25px 0 -10px rgba(120,55,41,.18);
+    }
+    .hero-art:after {
+      content: "CUIDADO • MOVIMENTO • BEM-ESTAR"; position: absolute; bottom: 26px; left: 0; right: 0;
+      text-align: center; color: #783729; font-size: 10px; letter-spacing: .2em; font-weight: 800;
+    }
+    .art-circle { position: absolute; width: 82px; height: 82px; border: 1px solid rgba(120,55,41,.4); border-radius: 50%; top: 38px; right: 13%; }
+    .art-leaf { position: absolute; width: 90px; height: 42px; border-radius: 100% 0 100% 0; background: rgba(120,55,41,.22); bottom: 95px; left: 13%; transform: rotate(-25deg); }
+    section { padding: 70px 0; }
+    .section-head { text-align: center; max-width: 650px; margin: 0 auto 38px; }
+    h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(32px, 4vw, 46px); font-weight: 500; line-height: 1.12; margin: 10px 0 12px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .services { background: var(--paper); }
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .service-card {
+      background: white; border: 1px solid #eee3db; border-radius: 22px; padding: 25px;
+      display: flex; flex-direction: column; gap: 12px; box-shadow: 0 8px 25px rgba(74,43,31,.04);
+    }
+    .service-card.featured { border: 2px solid var(--clay); background: #fffaf6; }
+    .card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .tag { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--terracotta); font-weight: 800; }
+    .price { color: var(--terracotta); font-size: 25px; font-weight: 800; white-space: nowrap; }
+    .service-image { width: 100%; height: 178px; object-fit: cover; border-radius: 15px; background: var(--sand); }
+    .addon-image { width: 100%; height: 104px; object-fit: cover; border-radius: 12px; background: var(--sand); }
+    .service-card h3 { margin: 0; font-size: 20px; }
+    .service-card p { color: var(--muted); margin: 0; font-size: 14px; }
+    .choose { margin-top: auto; padding-top: 8px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; cursor: pointer; }
+    input[type="radio"], input[type="checkbox"] { accent-color: var(--terracotta); width: 18px; height: 18px; }
+    .addons { margin-top: 48px; }
+    .addons h3 { font-family: Georgia, serif; font-size: 29px; font-weight: 500; margin: 0 0 8px; }
+    .addons-intro { color: var(--muted); margin: 0 0 20px; }
+    .addon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .addon {
+      border: 1px solid #eee3db; background: white; border-radius: 17px; padding: 14px;
+      display: flex; flex-direction: column; gap: 10px; min-height: 210px; cursor: pointer;
+      transition: .2s ease;
+    }
+    .addon:has(input:checked) { border-color: var(--clay); background: #fff8f3; }
+    .addon label { display: flex; align-items: center; gap: 9px; font-weight: 700; cursor: pointer; }
+    .addon strong { color: var(--terracotta); font-size: 20px; }
+    .calculator { background: #f0e4db; }
+    .calc-box { max-width: 760px; margin: auto; background: var(--paper); border-radius: 26px; padding: 30px; box-shadow: var(--shadow); }
+    .calc-row { display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid #eee3db; color: var(--muted); }
+    .calc-row strong { color: var(--ink); text-align: right; }
+    .total { display: flex; justify-content: space-between; align-items: center; padding: 22px 0 18px; font-weight: 800; font-size: 18px; }
+    .total strong { font-size: 34px; color: var(--terracotta); }
+    .calc-box .button { width: 100%; margin-top: 8px; }
+    .hint { font-size: 12px; color: var(--muted); text-align: center; margin: 13px 0 0; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 45px; align-items: center; }
+    .about-mark { min-height: 245px; display: grid; place-items: center; background: var(--terracotta); color: white; border-radius: 28px; }
+    .about-mark b { font-family: Georgia, serif; font-size: 76px; font-weight: 500; letter-spacing: -.08em; }
+    .about-copy p { color: var(--muted); }
+    footer { background: #392a25; color: #fff7f1; padding: 42px 0; }
+    .footer-row { display: flex; justify-content: space-between; gap: 25px; align-items: center; flex-wrap: wrap; }
+    footer p { color: #d8c5bb; margin: 6px 0 0; font-size: 13px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+    .disclaimer { font-size: 11px; color: #cbb7ad; margin-top: 28px; max-width: 800px; }
+    @media (max-width: 760px) {
+      .nav { min-height: 68px; }
+      .nav-links { display: none; }
+      .nav .button { padding: 11px 15px; font-size: 12px; }
+      .hero { padding: 54px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero-art { min-height: 280px; max-width: 500px; width: 100%; margin: auto; }
+      section { padding: 56px 0; }
+      .service-grid { grid-template-columns: 1fr; }
+      .addon-grid { grid-template-columns: repeat(2, 1fr); }
+      .calc-box { padding: 22px; }
+    }
+    @media (max-width: 390px) { .addon-grid { grid-template-columns: 1fr; } .wrap { width: min(100% - 28px, 1120px); } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Cardio em Casa - início">
+      <div class="brand-mark">CEC</div>
+      <div class="brand-name">CARDIO <span>EM CASA</span></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="button" href="#servicos">Monte seu atendimento <span>↗</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Saúde • cuidado • bem-estar</div>
+        <h1>Seu cuidado,<br><em>do seu jeito.</em></h1>
+        <p>Escolha seu atendimento principal, acrescente os cuidados que desejar e monte uma experiência personalizada para o seu bem-estar.</p>
+        <a class="button" href="#servicos">Conheça os serviços <span>↓</span></a>
+      </div>
+      <div class="hero-art" aria-label="Arte abstrata em tons terracota e bege">
+        <div class="art-circle"></div><div class="art-leaf"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Escolha seu atendimento</div>
+        <h2>Comece pelo serviço principal</h2>
+        <p>É necessário selecionar uma das duas opções para montar seu atendimento.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card featured">
+          <div class="card-top"><span class="tag">Serviço obrigatório · opção 1</span><span class="price">R$ 130</span></div>
+          <img class="service-image" src="assets/ventosaterapia.svg" alt="Ilustração de ventosas aplicadas nas costas" loading="lazy">
+          <h3>Ventosaterapia</h3>
+          <p>Atendimento com ventosas, realizado de acordo com avaliação e indicação profissional.</p>
+          <label class="choose"><input type="radio" name="principal" value="130" data-name="Ventosaterapia" checked> Escolher ventosaterapia</label>
+        </article>
+        <article class="service-card">
+          <div class="card-top"><span class="tag">Serviço obrigatório · opção 2</span><span class="price">R$ 100</span></div>
+          <img class="service-image" src="assets/exercicios-casa.svg" alt="Ilustração de pessoa realizando exercício de alongamento" loading="lazy">
+          <h3>Exercícios para casa</h3>
+          <p>Orientações de exercícios para realizar em casa, conforme seus objetivos e necessidades.</p>
+          <label class="choose"><input type="radio" name="principal" value="100" data-name="Exercícios para casa"> Escolher exercícios para casa</label>
+        </article>
+      </div>
+
+      <div class="addons">
+        <div class="eyebrow">Personalize sua experiência</div>
+        <h3>Adicione outros cuidados</h3>
+        <p class="addons-intro">Selecione os serviços adicionais que deseja incluir.</p>
+        <div class="addon-grid">
+          <div class="addon"><img class="addon-image" src="assets/massagem-corporal.svg" alt="Ilustração de massagem corporal" loading="lazy"><label><input type="checkbox" class="extra" value="50" data-name="Massagem corporal"> Massagem corporal</label><strong>R$ 50</strong></div>
+          <div class="addon"><img class="addon-image" src="assets/dry-needling.svg" alt="Ilustração de aplicação de dry needling" loading="lazy"><label><input type="checkbox" class="extra" value="20" data-name="Dry Needling"> Dry Needling</label><strong>R$ 20</strong></div>
+          <div class="addon"><img class="addon-image" src="assets/shiatsu-facial.svg" alt="Ilustração de shiatsu facial" loading="lazy"><label><input type="checkbox" class="extra" value="20" data-name="Shiatsu facial"> Shiatsu facial</label><strong>R$ 20</strong></div>
+          <div class="addon"><img class="addon-image" src="assets/alongamento.svg" alt="Ilustração de pessoa fazendo alongamento" loading="lazy"><label><input type="checkbox" class="extra" value="20" data-name="Alongamento"> Alongamento</label><strong>R$ 20</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calculator">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Seu atendimento personalizado</div>
+        <h2>Confira o valor</h2>
+        <p>O total é atualizado automaticamente conforme suas escolhas.</p>
+      </div>
+      <div class="calc-box">
+        <div class="calc-row"><span>Serviço principal</span><strong id="principal-label">Ventosaterapia — R$ 130,00</strong></div>
+        <div class="calc-row"><span>Serviços adicionais</span><strong id="extras-label">Nenhum adicional</strong></div>
+        <div class="total"><span>Valor total</span><strong id="total">R$ 130,00</strong></div>
+        <a class="button" id="whatsapp" href="#" target="_blank" rel="noopener">Agendar pelo WhatsApp <span>↗</span></a>
+        <p class="hint">O agendamento será confirmado diretamente pelo WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap about-grid">
+      <div class="about-mark"><b>CEC</b></div>
+      <div class="about-copy">
+        <div class="eyebrow">Cardio em Casa</div>
+        <h2>Cuidado personalizado para você.</h2>
+        <p>A proposta do Cardio em Casa é oferecer opções de atendimento e permitir que cada pessoa personalize sua escolha com serviços adicionais.</p>
+        <p>Os procedimentos são definidos considerando avaliação, indicação profissional e as necessidades de cada pessoa.</p>
+        <a class="button secondary" href="#servicos">Escolher meus serviços</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="footer-row">
+      <div>
+        <div class="brand-name">CARDIO EM CASA <span style="color:#d99b86">SEU CUIDADO, DO SEU JEITO.</span></div>
+        <p>Entre em contato e agende seu atendimento.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://wa.me/5598996199776" target="_blank" rel="noopener">WhatsApp: (98) 99619-9776</a>
+        <a href="https://instagram.com/studiocardioemcasa" target="_blank" rel="noopener">Instagram: @studiocardioemcasa</a>
+      </div>
+    </div>
+    <p class="disclaimer">Os valores apresentados são os informados para os serviços. A realização de cada procedimento depende de avaliação e indicação profissional. Confirme disponibilidade e condições no momento do agendamento.</p>
+  </div>
+</footer>
+
+<script>
+  const money = value => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const principalInputs = [...document.querySelectorAll('input[name="principal"]')];
+  const extras = [...document.querySelectorAll('.extra')];
+  const principalLabel = document.getElementById('principal-label');
+  const extrasLabel = document.getElementById('extras-label');
+  const totalLabel = document.getElementById('total');
+  const whatsapp = document.getElementById('whatsapp');
+
+  function updateTotal() {
+    const selected = principalInputs.find(input => input.checked);
+    const base = Number(selected.value);
+    const selectedExtras = extras.filter(input => input.checked);
+    const extraTotal = selectedExtras.reduce((sum, input) => sum + Number(input.value), 0);
+    const total = base + extraTotal;
+    const principalName = selected.dataset.name;
+    const extraNames = selectedExtras.map(input => `${input.dataset.name} (${money(Number(input.value))})`);
+    principalLabel.textContent = `${principalName} — ${money(base)}`;
+    extrasLabel.textContent = extraNames.length ? extraNames.join(', ') : 'Nenhum adicional';
+    totalLabel.textContent = money(total);
+    const message = [
+      'Olá! Quero agendar um atendimento com o Cardio em Casa.',
+      `Serviço principal: ${principalName} — ${money(base)}.`,
+      `Adicionais: ${extraNames.length ? extraNames.join(', ') : 'Nenhum'}.`,
+      `Total: ${money(total)}.`
+    ].join('\n');
+    whatsapp.href = `https://wa.me/5598996199776?text=${encodeURIComponent(message)}`;
+  }
+  [...principalInputs, ...extras].forEach(input => input.addEventListener('change', updateTotal));
+  updateTotal();
+</script>
+</body>
+</html>
